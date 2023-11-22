@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+["number of adults","number of children", "number of weekend nights",
+                      "car parking space", "lead time","repeated",
+                     "P-C","P-not-C", "average price ","special requests"]
+<body>
+ <div class="login">
+	<h1>Guest Cancel Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="type of meal" placeholder="type of meal" required="required" />
+      <input type="text" name="market segment type" placeholder="market segment type" required="required" />
+		  <input type="text" name="number of adults" placeholder="number of adults" required="required" />
+      <input type="text" name="number of children" placeholder="number of children" required="required" />
+		  <input type="text" name="number of weekend nights" placeholder="number of weekend nights" required="required" />
+      <input type="text" name="car parking space" placeholder="car parking space" required="required" />
+      <input type="text" name= "lead time" placeholder= "lead time" required="required" />
+      <input type="text" name="repeated" placeholder="repeated" required="required" />
+      <input type="text" name="P-C" placeholder="P-C" required="required" />
+      <input type="text" name="P-not-C" placeholder="P-not-C" required="required" />
+      <input type="text" name="average price " placeholder="average price " required="required" />
+      <input type="text" name="special requests" placeholder="special requests" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
