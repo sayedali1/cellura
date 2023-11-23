@@ -5,6 +5,7 @@ import pickle
 # Create flask app
 flask_app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
+scaler = pickle.load(open("scaler.pkl", "rb"))
 
 @flask_app.route("/")
 def Home():
@@ -14,7 +15,7 @@ def Home():
 def predict():
     float_features = [float(x) for x in request.form.values()]
     features = [np.array(float_features)]
-    prediction = model.predict(features)
+    prediction = model.predict(scaler.transform(features))
 
     if prediction == 1:
         status  = "canceled"
